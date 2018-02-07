@@ -761,7 +761,9 @@ class ARIMA(tsm.TSM):
         plt.plot(date_index, values_to_plot, label='ARIMA model', c='black')
         plt.title(self.data_name)
         plt.legend(loc=2)   
-        plt.show()          
+        if Show:
+            plt.show()          
+        return {'Y': Y, 'fit': values_to_plot}
 
     def plot_predict(self, h=5, past_values=20, intervals=True, **kwargs):
         """ Plots forecasts with the estimated model
